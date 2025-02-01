@@ -1,0 +1,16 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"name": "Kedarkantha"},
+        "geometry": {
+          "coordinates": [
+            78.17189901385075,
+            31.022529372039486
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  }

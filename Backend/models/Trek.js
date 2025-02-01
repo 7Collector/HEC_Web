@@ -10,10 +10,71 @@ const TrekSchema = new Schema({
         type: String,
         required: true
     },
+    registrationCost: {
+        type: Number,
+        required: true  
+    },
     price: {
         type: Number,
         required: true
     },
+    upi: {
+        type: String,
+        required: true
+    },
+    registrations: [
+        {
+            name: {
+                type: String,
+                required: true
+            },
+            registrationCost: {
+                type: Boolean,
+                required: true,
+                default: false
+            },
+            price: {
+                type: Boolean,
+                required: true,
+                default: false
+            },
+            paymenttRecieptRegistration: {
+                type: String,
+                required: true
+            },
+            paymenttRecieptPrice: {
+                type: String,
+                required: true
+            }
+        }
+    ],
+    reviews: [
+        {
+            id: {
+                type: String,
+                required: true
+            },
+            userDetails: {
+                    name: {
+                        type: String,
+                        required: true
+                    },
+                    image: {
+                        type: String,
+                        required: true
+                    },
+                    trekName: {
+                        type: String,
+                        required: true
+                    }            
+            },
+            review: {
+                type: String,
+                required: true
+            },
+            
+        }
+    ],
     leaders: [
         {
             name: {

@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
+    enroll: {
+        type: Number,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -20,9 +24,6 @@ const UserSchema = new Schema({
     number: {
         type: String,
         required: true
-    },
-    token: {
-        type: String
     },
     treks: [
         {
