@@ -47,16 +47,7 @@ const Navbar = (loggedin, page) => {
         >
           About us
         </Link>
-        <Link
-          to="/contact"
-          className={
-            page === "Contact"
-              ? "hover:font-semibold font-semibold"
-              : "hover:font-semibold"
-          }
-        >
-          Contact
-        </Link>
+        <Link to="#footer" className="hover:font-semibold">Contact</Link>
       </div>
       <Link
         to={loggedin ? "/auth/omniport" : "/user/"}

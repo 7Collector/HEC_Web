@@ -13,7 +13,7 @@ const ImageFrame = ({ image, large }) => (
 );
 
 const TeamMemberFrame = ({ name, image, large }) => (
-  <div className="flex flex-col items-center justify-center mx-12 my-4">
+  <div className="flex flex-col items-center justify-center">
     <div className="bg-white p-2 shadow-md">
       <ImageFrame image={image} large={large} />
       <p className="text-black text-2xl text-center mt-2">{name}</p>

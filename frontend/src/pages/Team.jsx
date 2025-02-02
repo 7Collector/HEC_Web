@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import TeamMemberFrame from '../components/TeamMember';
-import { deputySecerateries, facultyAdvisor, jointSecerateries, seceratery } from "../dataset/team";
+import { deputySecerateries, facultyAdvisor, jointSecerateries, Secretary } from "../dataset/team";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -22,12 +22,12 @@ const Team = () => {
             <div className="flex flex-wrap justify-evenly items-center">
             <div className="mt-8">
               <h1 className="text-white text-3xl px-12 flex flex-col items-center justify-center">
-                Seceratery
+                Secretary
                 <div className="h-[2px] bg-red-600 mt-2 mb-4 w-[250px]" />
               </h1>
               <TeamMemberFrame
-                name={seceratery.name}
-                image={seceratery.image}
+                name={Secretary.name}
+                image={Secretary.image}
                 large
               />
             </div>
@@ -45,10 +45,10 @@ const Team = () => {
             </div>
             <div className="mt-12">
               <h1 className="text-white text-3xl px-12 flex flex-col items-center justify-center">
-                Deputy Seceratery
+                Deputy Secretary
                 <div className="h-[2px] bg-white mt-2 mb-4 w-[250px]" />
               </h1>
-              <div className="flex flex-wrap justify-center items-center">
+              <div className="flex flex-wrap justify-center gap-8 items-center">
                 {
                   deputySecerateries.map((member) => (
                     <TeamMemberFrame
@@ -63,10 +63,10 @@ const Team = () => {
             </div>
             <div className="mt-8">
               <h1 className="text-white text-3xl px-12 flex flex-col items-center justify-center">
-                Joint Seceratery
+                Joint Secretary
                 <div className="h-[2px] bg-white mt-2 mb-4 w-[250px]" />
               </h1>
-              <div className="flex flex-wrap justify-center items-center">
+              <div className="flex flex-wrap justify-center gap-8 items-center">
                 {
                   jointSecerateries.map((member) => (
                     <TeamMemberFrame

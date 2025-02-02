@@ -6,7 +6,10 @@ const treks = [
         cost: "₹8,500",
         date: "15th Feb 2025",
         difficulty: "Moderate",
-        description: "A breathtaking winter trek with mesmerizing views of the Himalayas."
+        description: "A breathtaking winter trek with mesmerizing views of the Himalayas.",
+        completed: false,
+        paid: false,
+        reviewed: false
     },
     {
         id: 2,
@@ -15,7 +18,10 @@ const treks = [
         cost: "₹10,000",
         date: "5th March 2025",
         difficulty: "Easy to Moderate",
-        description: "A stunning trek through a UNESCO World Heritage Site filled with vibrant flowers."
+        description: "A stunning trek through a UNESCO World Heritage Site filled with vibrant flowers.",
+        completed: true,
+        paid: true,
+        reviewed: false
     },
     {
         id: 3,
@@ -24,7 +30,10 @@ const treks = [
         cost: "₹12,500",
         date: "20th April 2025",
         difficulty: "Difficult",
-        description: "A thrilling high-altitude trek to the mysterious Skeleton Lake."
+        description: "A thrilling high-altitude trek to the mysterious Skeleton Lake.",
+        completed: true,
+        paid: true,
+        reviewed: true
     }
 ];
 

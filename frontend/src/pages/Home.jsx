@@ -8,19 +8,21 @@ import reviews from "../dataset/reviews";
 import Footer from "../components/Footer";
 
 const Home = () => {
-    return (
-        <div className="bg-black min-h-screen px-20">
-            <HomeNavbar />
-            <div className="flex flex-row min-h-full justify-center items-center py-10">
-                <HomeGreeting />
-                <Earth />
-            </div>
-            <UpcomingTreks treks={treks}/>
-            <Reviews reviews={reviews} />
-
-            <Footer />
+  return (
+    <div className="bg-black min-h-screen px-20">
+      <div className="flex flex-col h-[100vh]">
+        <HomeNavbar className="px-20"/>
+        <div className="flex-1 flex flex-row min-h-full justify-between items-center py-10">
+          <HomeGreeting />
+          <Earth />
         </div>
-    )
-}
+      </div>
+      <UpcomingTreks treks={treks} />
+      <Reviews reviews={reviews} />
+
+      <Footer />
+    </div>
+  );
+};
 
 export default Home;

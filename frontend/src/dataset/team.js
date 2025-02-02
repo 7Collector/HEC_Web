@@ -5,34 +5,34 @@ const facultyAdvisor = {
     linkedin: "https://www.linkedin.com/in/xyz/",
 };
 
-const seceratery = {
-    name: "Mr. XYZ",
-    image: "/images/team/secertary.jpg",
-    position: "Seceratery",
+const Secretary = {
+    name: "Mr. Praveen Roj",
+    image: "/secretary.jpg",
+    position: "Secretary",
     linkedin: "https://www.linkedin.com/in/xyz/",
 };
 
-const deputySecerateries = Array.from({ length: 8 }).map(
+const deputySecerateries = Array.from({ length: 10 }).map(
     (_, i) => ({
-        name: `Deputy Seceratery ${i + 1}`,
-        image: `/images/team/deputy_seceratery_${i + 1}.jpg`,
-        position: "Deputy Seceratery",
-        linkedin: `https://www.linkedin.com/in/deputy_seceratery_${i + 1}/`,
+        name: `Deputy Secretary ${i + 1}`,
+        image: `/images/team/deputy_Secretary_${i + 1}.jpg`,
+        position: "Deputy Secretary",
+        linkedin: `https://www.linkedin.com/in/deputy_Secretary_${i + 1}/`,
     })
 );
 
-const jointSecerateries = Array.from({ length: 12 }).map(
+const jointSecerateries = Array.from({ length: 20 }).map(
     (_, i) => ({
-        name: `Joint Seceratery ${i + 1}`,
-        image: `/images/team/joint_seceratery_${i + 1}.jpg`,
-        position: "Joint Seceratery",
-        linkedin: `https://www.linkedin.com/in/joint_seceratery_${i + 1}/`,
+        name: `Joint Secretary ${i + 1}`,
+        image: `/images/team/joint_Secretary_${i + 1}.jpg`,
+        position: "Joint Secretary",
+        linkedin: `https://www.linkedin.com/in/joint_Secretary_${i + 1}/`,
     })
 );
 
 export {
     facultyAdvisor,
-    seceratery,
+    Secretary,
     deputySecerateries,
     jointSecerateries,
 };

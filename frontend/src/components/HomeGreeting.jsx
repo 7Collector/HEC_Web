@@ -10,7 +10,7 @@ const HomeGreeting = (loggedin) => {
         nature like never before. Your adventure starts here.
       </p>
       <div className="flex flex-row gap-2">
-        <Link to={loggedin ? "/auth/omniport" : "/user/"} className="w-[40%] bg-white text-black rounded-4xl font-semibold text-xl text-center py-3">
+        <Link to={loggedin ? "http://localhost:3000/auth/omniport" : "/user/"} className="w-[40%] bg-white text-black rounded-4xl font-semibold text-xl text-center py-3">
             {loggedin ? <p>Login</p> : <p>Dashboard</p>}
         </Link>
         <Link to="/treks" className="w-[40%] bg-[#1e1e1e] text-white rounded-4xl font-semibold text-xl text-center py-3">

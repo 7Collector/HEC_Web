@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const session = require("express-session");
 const passport = require('passport');
+const cors = require('cors');
 const OAuth2Strategy = require('passport-oauth2');
 const axios = require('axios');
 const User = require('./models/User');
@@ -76,6 +77,8 @@ passport.deserializeUser(async (id, done) => {
     }
 });
 
+// CORS req from forntend
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 // Session middlewares
 app.use(session({
     secret: process.env.SECRET,
