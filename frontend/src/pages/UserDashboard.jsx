@@ -66,7 +66,7 @@ const UserDashboard = ({setLoggedIn}) => {
                   popup.classList.toggle("hidden");
                 }}
               />
-              <ProfilePopUp profile={profile} />
+              <ProfilePopUp profile={profile} setLoggedIn={setLoggedIn} />
             </div>
           </div>
           <div className="flex flex-row justify-center text-white gap-10 text-lg border-b-2 border-[#212121]">
