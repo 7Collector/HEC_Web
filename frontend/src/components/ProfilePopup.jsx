@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ProfilePopUp = ({ profile }) => {
     return (
         <div className="user-popup hidden absolute top-12 right-0 border border-[#212121] drop-shadow-lg bg-black rounded-2xl p-4 w-[200px]">
-            <p className="text-white text-lg font-semibold mb-2">Your Name</p>
+            <p className="text-white text-lg font-semibold mb-2">{profile?.name || "User"}</p>
             <Link
               to="/"
               className="block text-[#5e5e5e] text-lg font-semibold mt-2 hover:text-white"

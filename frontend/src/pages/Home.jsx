@@ -7,13 +7,13 @@ import Reviews from "../components/Reviews";
 import reviews from "../dataset/reviews";
 import Footer from "../components/Footer";
 
-const Home = () => {
+const Home = ({loggedIn}) => {
   return (
     <div className="bg-black min-h-screen px-20">
       <div className="flex flex-col h-[100vh]">
         <HomeNavbar className="px-20"/>
         <div className="flex-1 flex flex-row min-h-full justify-between items-center py-10">
-          <HomeGreeting />
+          <HomeGreeting loggedIn={loggedIn} />
           <Earth />
         </div>
       </div>

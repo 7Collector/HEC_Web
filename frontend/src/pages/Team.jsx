@@ -4,12 +4,12 @@ import { deputySecerateries, facultyAdvisor, jointSecerateries, Secretary } from
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const Team = () => {
+const Team = ({loggedIn}) => {
     return (
         <>
           <div className="min-h-screen bg-[url('/main_bg.jpg')] bg-cover bg-center bg-no-repeat">
             <div className="min-h-screen bg-[linear-gradient(180deg,transparent_50%,rgba(0,0,0,0.8))]">
-              <Navbar page={"Team"} />
+              <Navbar page={"Team"} loggedIn={loggedIn} />
               <h1 className="text-white text-5xl px-12 w-full h-[30vh] flex flex-col items-center justify-center">
                 <span className="font-camica">Meet the Team</span>
                 <span className="text-2xl mt-4 text-black">

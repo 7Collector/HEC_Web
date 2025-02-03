@@ -4,15 +4,15 @@ const User = require('../models/User');
 const Review = require('../models/Review');
 const loggedIn = require('../middleware');
 
-// Route for fetching previous treks and those for which registered
+// Route for fetching upcoming treks in which not registered
 router.get('/mytreks', loggedIn, (req, res) => {
     const user = req.user;
     return res.json(user.treks);
 });
 
 // Route for user's reviews
-router.get('/reviews', loggedIn, (req, res) => {
-    const reviews = Review.find({ userId: req.user._id });
+router.get('/reviews', loggedIn, async (req, res) => {
+    const reviews = await Review.find({ userId: req.user._id });
     if (reviews) {
         return res.json({reviews: reviews});
     }
@@ -20,14 +20,16 @@ router.get('/reviews', loggedIn, (req, res) => {
 });
 
 // Route for fetching profile details
-router.get('/profile', loggedIn, (req, res) => {
+router.get('/profile', loggedIn, async (req, res) => {
     const user = req.user;
+    console.log(user)
     return res.json({
         name: user.name,
         email: user.email,
         number: user.number,
         image: user.image,
-        signature: user.signature
+        signature: user.signature,
+        treks: user.treks,
     });
 });
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const HomeGreeting = (loggedin) => {
+const HomeGreeting = ({loggedIn}) => {
   return (
     <div className="flex flex-col gap-4">
       <img className="w-24 h-24" src="/hec_logo.png" />
@@ -10,8 +10,8 @@ const HomeGreeting = (loggedin) => {
         nature like never before. Your adventure starts here.
       </p>
       <div className="flex flex-row gap-2">
-        <Link to={loggedin ? "http://localhost:3000/auth/omniport" : "/user/"} className="w-[40%] bg-white text-black rounded-4xl font-semibold text-xl text-center py-3">
-            {loggedin ? <p>Login</p> : <p>Dashboard</p>}
+        <Link to={!loggedIn ? "http://localhost:3000/auth/omniport" : "/user/dashboard"} className="w-[40%] bg-white text-black rounded-4xl font-semibold text-xl text-center py-3">
+            {!loggedIn ? <p>Login</p> : <p>Dashboard</p>}
         </Link>
         <Link to="/treks" className="w-[40%] bg-[#1e1e1e] text-white rounded-4xl font-semibold text-xl text-center py-3">
             View Treks

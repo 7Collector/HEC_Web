@@ -38,7 +38,7 @@ passport.use(new OAuth2Strategy({
         if (!user) {
             user = new User({
                 name: userData.person.fullName,
-                image: 'https://channeli.in/' + userData.person.displayPicture,
+                image: 'https://channeli.in' + userData.person.displayPicture,
                 enroll: enroll,
                 signature: null,
                 //email: userData.contactInformation.emailAddress,
@@ -50,7 +50,7 @@ passport.use(new OAuth2Strategy({
             await user.save();
         } else {
             user.name = userData.person.fullName;
-            user.image = 'https://channeli.in/' + userData.person.displayPicture;
+            user.image = 'https://channeli.in' + userData.person.displayPicture;
             //user.email = userData.contactInformation.emailAddress;
             //user.number = userData.contactInformation.primaryPhoneNumber;
             await user.save();
@@ -70,7 +70,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
     try {
-        const user = User.findOne({ enroll: id });
+        const user = await User.findOne({ enroll: id });
         done(null, user);
     } catch (error) {
         done(error, null);
@@ -83,7 +83,11 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        secure: false,
+        httpOnly: false
+    }
 }))
 app.use(passport.initialize());
 app.use(passport.session());

@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = (loggedin, page) => {
+const Navbar = ({loggedIn, page}) => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-row justify-between px-10 py-4 items-center">
       <Link to="/">
@@ -49,12 +52,17 @@ const Navbar = (loggedin, page) => {
         </Link>
         <Link to="#footer" className="hover:font-semibold">Contact</Link>
       </div>
-      <Link
-        to={loggedin ? "/auth/omniport" : "/user/"}
-        className="px-4 bg-white text-black rounded-4xl font-semibold text-xl text-center py-2 h-fit"
+      <div
+        onClick={() => {
+          if (!loggedIn)
+            window.location.href = "http://localhost:3000/auth/omniport";
+          else 
+            navigate("/user/dashboard");
+        }}
+        className="px-4 bg-white text-black rounded-4xl font-semibold text-lg text-center py-2 h-fit hover:cursor-pointer"
       >
-        {loggedin ? <p>Login</p> : <p>Dashboard</p>}
-      </Link>
+        {!loggedIn ? <p>Login</p> : <p>Dashboard</p>}
+      </div>
     </div>
   );
 };
