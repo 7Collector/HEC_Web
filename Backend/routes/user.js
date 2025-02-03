@@ -22,6 +22,7 @@ router.get('/reviews', loggedIn, async (req, res) => {
 // Route for fetching profile details
 router.get('/profile', loggedIn, async (req, res) => {
     const user = req.user;
+    //await new Promise(resolve => setTimeout(resolve, 3000));
     console.log(user)
     return res.json({
         name: user.name,
