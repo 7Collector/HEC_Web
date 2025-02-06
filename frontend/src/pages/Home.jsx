@@ -1,11 +1,11 @@
-import HomeGreeting from "../components/HomeGreeting";
-import Earth from "../components/Earth";
-import HomeNavbar from "../components/HomeNavbar";
-import UpcomingTreks from "../components/UpcomingTreks";
+import HomeGreeting from "../components/home/HomeGreeting";
+import Earth from "../components/home/Earth";
+import HomeNavbar from "../components/home/HomeNavbar";
+import UpcomingTreks from "../components/home/UpcomingTreks";
 import treks from "../dataset/treks";
-import Reviews from "../components/Reviews";
+import Reviews from "../components/home/Reviews";
 import reviews from "../dataset/reviews";
-import Footer from "../components/Footer";
+import Footer from "../components/utilities/Footer";
 
 const Home = ({loggedIn}) => {
   return (

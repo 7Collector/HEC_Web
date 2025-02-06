@@ -45,7 +45,7 @@ passport.use(new OAuth2Strategy({
                 //number: userData.contactInformation.primaryPhoneNumber,
                 email: 'temp',
                 number: 'temp',
-                treks: []
+                treks: [],
             });
             await user.save();
         } else {

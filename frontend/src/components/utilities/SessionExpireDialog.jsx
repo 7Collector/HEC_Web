@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const SessionExpiredDialog = ({ onClose, setLoggedIn }) => {
+const SessionExpiredDialog = ({ onClose, setLoggedIn, adminLogin }) => {
   const navigate = useNavigate();
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-black text-white p-8 rounded-md w-80 text-center border border-[#212121]">
         <h2 className="text-xl font-bold mb-4">Session Expired</h2>
         <p className="mb-4">Your session has expired. Please log in again.</p>
@@ -22,7 +22,7 @@ const SessionExpiredDialog = ({ onClose, setLoggedIn }) => {
           </button>
           <button
             onClick={() => {
-              window.location.href = "http://localhost:3000/auth/omniport";
+              window.location.href = adminLogin ? "http://localhost:3000/auth/omniport?next=/admin/dashboard" : "http://localhost:3000/auth/omniport";
               onClose();
             }}
             className="bg-white text-black font-semibold px-4 py-2 rounded hover:cursor-pointer"

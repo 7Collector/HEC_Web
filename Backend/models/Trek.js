@@ -2,10 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const TrekSchema = new Schema({
-    id: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -38,50 +34,44 @@ const TrekSchema = new Schema({
                 required: true,
                 default: false
             },
-            paymenttRecieptRegistration: {
+            paymentRecieptRegistration: {
                 type: String,
                 required: true
             },
-            paymenttRecieptPrice: {
+            paymentRecieptPrice: {
                 type: String,
                 required: true
             }
         }
     ],
-    reviews: [
-        {
-            id: {
-                type: String,
-                required: true
-            },
-            userDetails: {
-                    name: {
-                        type: String,
-                        required: true
-                    },
-                    image: {
-                        type: String,
-                        required: true
-                    },
-                    trekName: {
-                        type: String,
-                        required: true
-                    }            
-            },
-            review: {
-                type: String,
-                required: true
-            },
-            
-        }
-    ],
+    
     leaders: [
         {
+            image: {
+                type: String,
+                required: true
+            },
+            enroll: {
+                type: String,
+                required: true
+            },
             name: {
                 type: String,
                 required: true
             },
             instagram: {
+                type: String,
+                required: true
+            }
+        }
+    ],
+    recieptVerifiers: [
+        {
+            enroll: {
+                type: String,
+                required: true
+            },
+            name: {
                 type: String,
                 required: true
             }
@@ -136,6 +126,11 @@ const TrekSchema = new Schema({
     },
     report: {
         type: String
+    },
+    registration: {
+        type: Boolean,
+        reuired: true,
+        default: true
     }
 }, {timestamps: true})
 

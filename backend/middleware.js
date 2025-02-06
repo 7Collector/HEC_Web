@@ -5,4 +5,11 @@ const loggedIn = (req, res, next) => {
     next();
 };
 
-module.exports = loggedIn;
+const secretary = (req, res, next) => {
+    if (req.user.role != "secretary") {
+        return res.status(401).json({ message: 'Not Secretary' });
+    }
+    next();
+}
+
+module.exports = {loggedIn, secretary};

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Loader = () => {
+const Loader = ({ style }) => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black min-w-screen">
+    <div className={`flex ${style} items-center justify-center bg-black min-w-screen`}>
       <StyledWrapper>
         <div className="loader">
           <span className="bar" />

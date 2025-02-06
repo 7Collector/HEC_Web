@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import treks from "../dataset/treks";
 import reviews from "../dataset/reviews";
-import TrekCard from "../components/TrekCard";
-import YourReviewCard from "../components/YourReviewCard";
-import YourTrekCard from "../components/YourTrekCard";
-import ProfilePopUp from "../components/ProfilePopup";
-import Loader from "../components/Loading";
-import SessionExpiredDialog from "../components/SessionExpireDialog";
+import TrekCard from "../components/cards/TrekCard";
+import YourReviewCard from "../components/cards/YourReviewCard";
+import YourTrekCard from "../components/cards/YourTrekCard";
+import ProfilePopUp from "../components/utilities/ProfilePopup";
+import Loader from "../components/utilities/Loading";
+import SessionExpiredDialog from "../components/utilities/SessionExpireDialog";
+import MyReviews from "../components/UserDash/MyReviews";
+import YourProfile from "../components/UserDash/YourProfile";
 
-const UserDashboard = ({setLoggedIn}) => {
+const UserDashboard = ({ setLoggedIn }) => {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [sessionExpired, setSessionExpired] = useState(false);
@@ -39,10 +40,13 @@ const UserDashboard = ({setLoggedIn}) => {
   return (
     <>
       {sessionExpired && (
-        <SessionExpiredDialog onClose={() => setSessionExpired(false)} setLoggedIn={setLoggedIn} />
+        <SessionExpiredDialog
+          onClose={() => setSessionExpired(false)}
+          setLoggedIn={setLoggedIn}
+        />
       )}
       {loading ? (
-        <Loader />
+        <Loader style={"min-h-screen"} />
       ) : (
         <div className="bg-black min-h-screen">
           <div className="flex flex-row px-10 py-4 justify-between items-center">
@@ -89,30 +93,36 @@ const UserDashboard = ({setLoggedIn}) => {
           <div className="content px-20 py-10">
             {tab === "Upcoming" && (
               <div className="flex flex-row justify-between">
-                {treks.map((trek) => {
-                  return <TrekCard trek={trek} />;
-                })}
+                {profile.upcomingTreks && profile.upcomingTreks.length != 0 ? (
+                  profile.upcomingTreks.map((trek) => {
+                    return <TrekCard trek={trek} />;
+                  })
+                ) : (
+                  <p className="text-2xl w-full text-white font-medium h-[400px] flex items-center justify-center">
+                    No upcoming treks
+                  </p>
+                )}
               </div>
             )}
             {tab === "Your Treks" && (
               <div className="flex flex-row justify-between">
-                {treks.map((trek) => {
+              {profile.treks && profile.treks.length != 0 ? (
+                profile.treks.map((trek) => {
                   return <YourTrekCard trek={trek} />;
-                })}
-              </div>
+                })
+              ) : (
+                <p className="text-2xl w-full text-white font-medium h-[400px] flex items-center justify-center">
+                    Please go on some treks... We want to show you the amazing experiences you've had with us...
+                </p>
+              )}
+            </div>
             )}
             {tab === "Your Reviews" && (
-              <div className="flex flex-wrap items-center gap-4 justify-center justify-items-stretch">
-                {reviews.map((review) => {
-                  return <YourReviewCard review={review} />;
-                })}
-              </div>
+              <MyReviews style={"flex flex-wrap items-center gap-4 h-full justify-center justify-items-stretch"} />
             )}
             {tab === "Profile" && (
-              <div>
-                <p>Name: {profile.name}</p>
-                <p>Email: {profile.email}</p>
-                <p>Number: {profile.number}</p>
+              <div className="w-full flex justify-center">
+                <YourProfile style={"items-center gap-4 h-[full]"} profile={profile} />
               </div>
             )}
           </div>

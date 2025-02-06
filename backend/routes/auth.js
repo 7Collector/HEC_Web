@@ -7,8 +7,9 @@ router.get('/omniport',
 
 router.get('/callback', passport.authenticate('oauth2', { failureRedirect: 'http://localhost:5173/' }),
     function (req, res) {
+        const next = req.query.next || '/user/dashboard'
         // Successful authentication, redirect home.
-        res.redirect('http://localhost:5173/user/dashboard');
+        res.redirect('http://localhost:5173' + next);
     });
     
 router.get("/auth/logout", (req, res) => {
